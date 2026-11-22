@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dr. Junaid Alam Khan · Mathematics Teaching</title>
+<meta name="description" content="Lectures and course materials from Dr. Junaid Alam Khan, Associate Professor of Mathematics, Institute of Business Administration, Karachi.">
+<meta property="og:title" content="Dr. Junaid Alam Khan · Mathematics Teaching">
+<meta property="og:description" content="Lectures, booklets and videos for Linear Algebra, Graph Theory and 9th &amp; 10th Mathematics.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#15213a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<!--APP-START-->
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="#home" aria-label="Home">
+      <span class="brand-mark" aria-hidden="true">JAK</span>
+      <span class="brand-text"><span class="brand-name" data-bind="name">Dr. Junaid Alam Khan</span><span class="brand-sub" data-bind="brandSub">Mathematics · IBA Karachi</span></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#home" data-route="home">Home</a>
+      <a href="#courses" data-route="courses">Courses</a>
+      <a href="#teaching" data-route="teaching">Teaching</a>
+      <a href="#research" data-route="research">Research</a>
+      <a href="#developer" data-route="developer">Developer</a>
+      <a href="#about" data-route="about">About</a>
+      <a href="#cv" data-route="cv">CV</a>
+      <a href="#contact" data-route="contact">Contact</a>
+    </nav>
+    <div class="header-tools">
+      <button class="icon-btn search-btn" id="searchBtn" type="button" aria-label="Search lectures and courses">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <span class="search-label">Search</span><span class="kbd">/</span>
+      </button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch colour theme" title="Theme"></button>
+    </div>
+  </div>
+</header>
+<main id="main" tabindex="-1"><div class="loading-shell">Loading course materials…</div></main>
+<footer class="site-footer" id="footer"></footer>
+<div class="overlay" id="searchOverlay" hidden>
+  <div class="search-box" role="dialog" aria-modal="true" aria-label="Search">
+    <label class="sr-only" for="searchInput">Search courses and lectures</label>
+    <input class="input" id="searchInput" type="search" placeholder="Search lectures, topics, courses…" autocomplete="off">
+    <ul class="results" id="searchResults"></ul>
+    <div class="search-foot"><span>↑ ↓ to move</span><span>Enter to open</span><span>Esc to close</span></div>
+  </div>
+</div>
+<div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-labelledby="viewerTitle">
+  <div class="viewer-bar">
+    <div class="viewer-title"><strong id="viewerTitle"></strong><span id="viewerSub"></span></div>
+  <button class="icon-btn" id="vClose" type="button" aria-label="Close viewer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div class="viewer-controls">
+      <button class="icon-btn" id="vPrev" type="button" aria-label="Previous page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m15 18-6-6 6-6"/></svg></button>
+      <span class="pg" id="vPage">– / –</span>
+      <button class="icon-btn" id="vNext" type="button" aria-label="Next page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 18 6-6-6-6"/></svg></button>
+      <button class="icon-btn" id="vOut" type="button" aria-label="Zoom out">−</button>
+      <button class="icon-btn" id="vFit" type="button" aria-label="Fit to width">Fit</button>
+      <button class="icon-btn" id="vIn" type="button" aria-label="Zoom in">+</button>
+      <a class="btn btn-ghost btn-sm" id="vDownload" href="#" download>Download</a>
+      <a class="btn btn-ghost btn-sm" id="vOpen" href="#" target="_blank" rel="noopener">New tab</a>
+    </div>
+  </div>
+  <div class="viewer-pages" id="vPages"></div>
+</div>
+<div class="toast" id="toast" hidden role="status"></div>
+<script src="assets/js/app.js"></script>
+<!--APP-END-->
+</body>
+</html>
