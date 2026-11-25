@@ -54,6 +54,8 @@
     github: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>',
     linkedin: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>',
     youtube: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>',
+    scholar: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zm-6.5 9.6V16c0 1.66 2.91 3 6.5 3s6.5-1.34 6.5-3v-3.4L12 16.2l-6.5-3.6z"/></svg>',
+    researchgate: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><text x="12" y="16.2" text-anchor="middle" font-family="Georgia, serif" font-size="10" font-weight="700" fill="currentColor" stroke="none">RG</text></svg>',
     ext: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>',
     play: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>',
     eye: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>',
@@ -309,7 +311,12 @@
       '<div class="course-grid course-grid-fit">' + feat.map(courseCard).join("") + '</div></div></section>' +
     '';
   }
-  var SOCIAL = [["github", "GitHub"], ["youtube", "YouTube · JAK Mathematics"], ["youtubeUrdu", "YouTube · Ms Khudaija Junaid"], ["linkedin", "LinkedIn"]];
+  var SOCIAL = [["github", "GitHub"], ["youtube", "YouTube · JAK Mathematics"], ["youtubeUrdu", "YouTube · Ms Khudaija Junaid"], ["linkedin", "LinkedIn"], ["scholar", "Google Scholar"], ["researchgate", "ResearchGate"]];
+  function researchProfiles() {
+    var L = S.links || {};
+    var b = [["scholar", "Google Scholar profile"], ["researchgate", "ResearchGate profile"]].filter(function (x) { return L[x[0]]; });
+    return b.length ? '<div class="hero-cta">' + b.map(function (x, i) { return '<a class="btn ' + (i ? "btn-ghost" : "btn-primary") + '" href="' + esc(L[x[0]]) + '" target="_blank" rel="noopener">' + I[x[0]] + x[1] + '</a>'; }).join("") + '</div>' : "";
+  }
   function socialLinks(cls) {
     var L = S.links || {};
     return SOCIAL.filter(function (x) { return L[x[0]]; }).map(function (x) {
@@ -542,7 +549,7 @@
     var r = S.research || {}, pubs = r.publications || [];
     var years = uniq(pubs.map(function (p) { return p.year; }));
     return '<section class="page-head"><div class="wrap"><p class="eyebrow">Research</p><h1>Research</h1><p>' + esc(r.summary || "") + '</p>' +
-      '<div class="stat-row"><div><b>' + pubs.length + '</b><span>journal articles</span></div><div><b>' + (r.software || []).length + '</b><span>SINGULAR libraries</span></div><div><b>' + ((S.supervision || {}).phd || []).length + '</b><span>Ph.D. theses supervised</span></div></div></div></section>' +
+      '<div class="stat-row"><div><b>' + pubs.length + '</b><span>journal articles</span></div><div><b>' + (r.software || []).length + '</b><span>SINGULAR libraries</span></div><div><b>' + ((S.supervision || {}).phd || []).length + '</b><span>Ph.D. theses supervised</span></div></div>' + researchProfiles() + '</div></section>' +
       '<section class="section"><div class="wrap"><h2 style="margin-bottom:1.25rem">Research interests</h2><div class="approach">' +
       (r.interests || []).map(function (x) { return '<div class="panel"><h3>' + esc(x.title) + '</h3><p>' + esc(x.text) + '</p></div>'; }).join("") +
       '</div></div></section>' +
@@ -586,7 +593,7 @@
       '<div id="moreRepos"></div></div></section>' +
       '<section class="section"><div class="wrap"><h2 style="margin-bottom:1rem">Links</h2><ul class="link-list">' +
       (S.devLinks || []).map(function (x) { return '<li><a href="' + esc(x.url) + '" target="_blank" rel="noopener"><span><strong>' + esc(x.title) + '</strong><span class="muted">' + esc(x.text) + '</span></span>' + I.ext + '</a></li>'; }).join("") +
-      SOCIAL.filter(function (x) { return L[x[0]] && x[0] !== "github"; }).map(function (x) { return '<li><a href="' + esc(L[x[0]]) + '" target="_blank" rel="noopener"><span><strong>' + x[1] + '</strong><span class="muted">' + (x[0] === "youtube" ? "Lecture videos in English" : x[0] === "youtubeUrdu" ? "Lecture videos in Urdu/Hindi" : "Professional profile") + '</span></span>' + I.ext + '</a></li>'; }).join("") +
+      SOCIAL.filter(function (x) { return L[x[0]] && x[0] !== "github"; }).map(function (x) { return '<li><a href="' + esc(L[x[0]]) + '" target="_blank" rel="noopener"><span><strong>' + x[1] + '</strong><span class="muted">' + (x[0] === "youtube" ? "Lecture videos in English" : x[0] === "youtubeUrdu" ? "Lecture videos in Urdu/Hindi" : x[0] === "scholar" ? "Publications and citations" : x[0] === "researchgate" ? "Publications and research network" : "Professional profile") + '</span></span>' + I.ext + '</a></li>'; }).join("") +
       '</ul></div></section>';
   }
   // Lists any other public repositories live from GitHub; silently does nothing if unavailable.

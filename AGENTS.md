@@ -74,7 +74,7 @@ A lecture with no `lecture`, `slides`, `notes` or `extras` shows as “Coming so
 
 **Add a research interest.** Append `{title, text}` to `site.json → research.interests`.
 
-**Change profile links.** `site.json → links` (`github`, `youtube`, `linkedin`). Empty values are hidden.
+**Change profile links.** `site.json → links` (`github`, `youtube`, `youtubeUrdu`, `linkedin`, `scholar`, `researchgate`). Empty values are hidden. `scholar` and `researchgate` also appear as buttons on the Research page.
 
 **Update office hours / contact.** `site.json → officeHours`, `office`, `email`.
 
@@ -82,7 +82,7 @@ A lecture with no `lecture`, `slides`, `notes` or `extras` shows as “Coming so
 
 ## `content/site.json` keys
 
-`name, shortName, title, department, institution, institutionShort, email, links{github,youtube,linkedin}, cvPdf, photo, heroIntro, announcement{show,text,link}, teachingSummary, teachingApproach[{title,text}], officeHours, office, studentNote, bio[paragraphs], education[{degree,institution,period,details[]}], appointments[{role,institution,period}], leadership[{role,institution,period,details[]}], service[{role,period}], awards[{title,body,year,teaching}], supervision{phd[],masters[],undergraduate[] of {student,title,year}}, research{summary,interests[{title,text}],software[{name,title,platform,authors,text,availability,url,repo}],publications[{title,authors,venue,year,doi,url}]}, devLinks[{title,text,url}], technologies[{name,text}]`
+`name, shortName, title, department, institution, institutionShort, email, links{github,youtube,youtubeUrdu,linkedin,scholar,researchgate,iba}, cvPdf, photo, heroIntro, announcement{show,text,link}, teachingSummary, teachingApproach[{title,text}], officeHours, office, studentNote, bio[paragraphs], education[{degree,institution,period,details[]}], appointments[{role,institution,period}], leadership[{role,institution,period,details[]}], service[{role,period}], awards[{title,body,year,teaching}], supervision{phd[],masters[],undergraduate[] of {student,title,year}}, research{summary,interests[{title,text}],software[{name,title,platform,authors,text,availability,url,repo}],publications[{title,authors,venue,year,doi,url}]}, devLinks[{title,text,url}], technologies[{name,text}]`
 
 ## Checking your work
 
